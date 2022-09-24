@@ -1,0 +1,45 @@
+$ terraform init // initialise terraform
+$ terraform fmt // format the code, make look aligned and professional
+$ terraform plan // This will show you what resources terraform will create
+$ terraform apply // This will create all the resources in your AWS account
+# -auto-approve // while using this flag, the confirmation will be auto applied, useful in automation
+# should be checked before applying, with "terraform plan"
+$ terraform destroy -auto-approve // destroy (delete) entire deployment, without asking for confirmation
+
+> ssh-keygen -t ed25519 // create an AWS EC2 Key Pair, from Windows terminal
+> ls ~/.ssh // list all keys in .ssh folder
+
+> terraform state show aws_instance.artac_node // display the instance resource data, to retrieve the public ip address
+
+# ssh into the instance, from terminal
+> ssh -i ~/.ssh/artackey ubuntu@54.164.134.148 // using public ip address
+
+# The authenticity of host '54.164.134.148 (54.164.134.148)' can't be established.
+# ECDSA key fingerprint is SHA256:KqiD29NN071nKsYjaVka2qBUB3zRWdR+b/rDGPkxHfs.
+# Are you sure you want to continue connecting (yes/no/[fingerprint])?
+> yes
+# Warning: Permanently added '54.164.134.148' (ECDSA) to the list of known hosts.
+# now logged in, and all good
+
+$ terraform apply -replace aws_instance.artac_node // this will destroy existing instance, and replace with new instance
+$ terraform console // this allows you to check commands and conditions before applying (type exit to get out of the console)
+
+# if you want override the default terraform.tfvars file, with a different vars file, you can set it with the -var-file= flag
+$ terraform console -var-file="dev.tfvars"
+
+# example for conditional expression
+# condition ? true_val : false_val
+var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]
+
+# to add small changes to the deployment, will use the -refresh-only flag
+$ terraform apply -refresh-only
+
+# to check outputs
+$ terraform output
+
+git init
+git remote add origin https://github.com/Baruch-Grizman/AWS-Web-Server-Terraform.git
+git status
+git push -u origin master
+
+git push -f -u origin master
