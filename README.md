@@ -1,6 +1,7 @@
 # Installing apache2 Web Server in AWS using Terraform  
   
-Installing apache2 Web Server in AWS using Terraform
+Installing apache2 Web Server in AWS using Terraform\
+All CI/CD is managed in CircleCI platform
   
 ## Description  
 ### An explanation of the various files in the project
