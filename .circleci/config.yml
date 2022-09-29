@@ -20,6 +20,8 @@ jobs:
           root: .
           paths:
             - .
+      - store_test_results:
+        path: test-results
 
   apply:
     docker:
