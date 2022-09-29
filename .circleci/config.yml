@@ -20,8 +20,6 @@ jobs:
           root: .
           paths:
             - .
-      - store_test_results:
-        path: test-results
 
   apply:
     docker:
@@ -64,8 +62,10 @@ jobs:
           command: |
             terraform apply -auto-approve tfdestroy
 
+      - store_test_results:
+          path: test-results
+
 workflows:
-  version: 2.1
   plan_approve_apply:
     jobs:
       - plan-apply
