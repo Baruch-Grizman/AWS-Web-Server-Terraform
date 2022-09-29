@@ -9,6 +9,8 @@ All CI/CD is managed in CircleCI platform
 ```  
 AWS-Web-Server-Terraform/  
 │  
+├── .circleci
+│   └─── config.yml
 ├── commands.txt   
 ├── datasources.tf
 ├── main.tf
@@ -20,6 +22,10 @@ AWS-Web-Server-Terraform/
 ├── userdata.tpl   
 └── variables.tf  
 ```   
+
+config.yml
+CircleCI configuration will complete our jobs during the process of automating the Terraform workflow
+
 commands.txt\
 List of commands for execution
 
