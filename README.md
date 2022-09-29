@@ -23,7 +23,7 @@ AWS-Web-Server-Terraform/
 └── variables.tf  
 ```   
 
-config.yml
+config.yml\
 CircleCI configuration will complete our jobs during the process of automating the Terraform workflow
 
 commands.txt\
