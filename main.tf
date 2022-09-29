@@ -55,7 +55,7 @@ resource "aws_route_table_association" "tfc_public_assoc" {
 # deploy an AWS EC2 Key Pair with Terraform
 resource "aws_key_pair" "artac_auth" {
   key_name   = "artackey"
-  public_key = file("~/.ssh/artackey.pub")
+  public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEsgLk4FlDLcfDEN9okT6HqDsR7dOqDZeYRyyytugxB baruch@DESKTOP-QNDAC4N"
 }
 
 # start deploying an EC2 Instance with Terraform
